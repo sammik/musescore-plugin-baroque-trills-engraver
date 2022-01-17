@@ -1,2 +1,2 @@
 # musescore-plugin-baroque-trills-engraver
-Replace default trills with braque style ones
+Replace default trills with baroque style ones
