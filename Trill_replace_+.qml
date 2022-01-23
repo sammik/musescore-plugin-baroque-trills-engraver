@@ -19,11 +19,11 @@ MuseScore {
             if (el.type == Element.ARTICULATION && el.symbol == SymId.ornamentTrill && el.visible == true) {
                 el.visible = false;
                 var note = el.parent.notes[el.parent.notes.length - 1];
-                var nY = note.posY
+                var nY = note.posY;
                 var sym = newElement(Element.SYMBOL);
                 sym.symbol = "ornamentShake3";
                 note.add(sym);
-                sym.offsetY = nY > 0 ? -1 - nY : -1
+                sym.offsetY = nY > 0 ? -1 - nY : -1;
             }
         }
         curScore.endCmd();

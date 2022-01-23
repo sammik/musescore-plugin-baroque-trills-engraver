@@ -7,8 +7,8 @@ import QtQuick 2.0
 import MuseScore 3.0
 
 MuseScore {
-    menuPath: "Plugins.Baroque Trills.Restore default Trills"
-    description: "Replace baroque trills with default ones"
+    menuPath: "Plugins.Baroque Trills.Adjust Positions"
+    description: "Adjust positions of baroque trills"
     version: "1"
     onRun: {
         
@@ -18,11 +18,9 @@ MuseScore {
         for (var i in els) {
             var el = els[i];
             if (el.type == Element.SYMBOL && el.symbol == SymId.ornamentShake3 || el.symbol == SymId.ornamentShakeMuffat1) {
-                console.log(el.symbol);
-                removeElement(el);
-            }
-            if (el.type == Element.ARTICULATION && el.symbol == SymId.ornamentTrill) {
-                el.visible = true;
+                var note = el.parent;
+                var nY = note.posY;
+                el.offsetY = nY > 0 ? -1 - nY : -1;
             }
         }
         curScore.endCmd();
