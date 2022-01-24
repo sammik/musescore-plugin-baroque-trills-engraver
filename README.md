@@ -1,6 +1,8 @@
 # musescore-plugin-baroque-trills-engraver
 Replace default trills with baroque style ones
 
+![Screenshot-baroque trills](Baroque-trills.png)
+
 ## Trill_replace_+.qml
 - hides default trill and replace it by Baroque Shake "+" symbol
 
