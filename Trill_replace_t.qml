@@ -9,7 +9,7 @@ import MuseScore 3.0
 MuseScore {
     menuPath: "Plugins.Baroque Trills.Create 't'"
     description: "Replace default trill with baroque 'Muffat' ones"
-    version: "1"
+    version: "1.1"
     onRun: {
         cmd("select-all");
         curScore.startCmd();
@@ -23,7 +23,8 @@ MuseScore {
                 var sym = newElement(Element.SYMBOL);
                 sym.symbol = "ornamentShakeMuffat1";
                 note.add(sym);
-                sym.offsetY = nY > 0 ? -1 - nY : -1;
+                sym.offsetY = nY > 0.5 ? -1 - nY : -1.5;
+                sym.offsetX = 0.3;
             }
         }
         curScore.endCmd();

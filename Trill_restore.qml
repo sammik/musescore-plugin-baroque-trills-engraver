@@ -17,11 +17,11 @@ MuseScore {
         var els = curScore.selection.elements;
         for (var i in els) {
             var el = els[i];
-            if (el.type == Element.SYMBOL && el.symbol == SymId.ornamentShake3 || el.symbol == SymId.ornamentShakeMuffat1) {
+            if (el.type == Element.SYMBOL && el.symbol == SymId.ornamentShake3 || el.symbol == SymId.ornamentShakeMuffat1 || el.symbol == SymId.ornamentTremblementCouperin) {
                 console.log(el.symbol);
                 removeElement(el);
             }
-            if (el.type == Element.ARTICULATION && el.symbol == SymId.ornamentTrill) {
+            if (el.type == Element.ARTICULATION && el.symbol == SymId.ornamentTrill || el.symbol == SymId.ornamentShortTrill) {
                 el.visible = true;
             }
         }

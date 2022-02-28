@@ -7,8 +7,8 @@ import QtQuick 2.0
 import MuseScore 3.0
 
 MuseScore {
-    menuPath: "Plugins.Baroque Trills.Create '+'"
-    description: "Replace default trill with baroque ones"
+    menuPath: "Plugins.Baroque Trills.Create 'Tremblement appuyé (Couperin)'"
+    description: "Replace default short trill with baroque one"
     version: "1.1"
     onRun: {
         cmd("select-all");
@@ -16,15 +16,15 @@ MuseScore {
         var els = curScore.selection.elements;
         for (var i in els) {
             var el = els[i];
-            if (el.type == Element.ARTICULATION && el.symbol == SymId.ornamentTrill && el.visible == true) {
+            if (el.type == Element.ARTICULATION && el.symbol == SymId.ornamentShortTrill && el.visible == true) {
                 el.visible = false;
                 var note = el.parent.notes[el.parent.notes.length - 1];
                 var nY = note.posY;
                 var sym = newElement(Element.SYMBOL);
-                sym.symbol = "ornamentShake3";
+                sym.symbol = "ornamentTremblementCouperin";
                 note.add(sym);
-                sym.offsetY = nY > 0.5 ? -1 - nY : -1.5;
-                sym.offsetX = 0.1;
+                sym.offsetY = nY > 1 ? -1 - nY : -2;
+                sym.offsetX = -0.4;
             }
         }
         curScore.endCmd();
